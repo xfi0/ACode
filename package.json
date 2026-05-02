@@ -1,0 +1,24 @@
+{
+  "name": "amethyst-code",
+  "version": "1.0.0",
+  "description": "Amethyst Code is a realtime, collaborative, text editor.",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Amethyst-Code"
+  },
+  "keywords": [
+    "text-editor",
+    "real-time",
+    "collab"
+  ],
+  "author": "xfi0",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
+  }
+}
