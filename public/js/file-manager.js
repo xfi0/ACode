@@ -1,7 +1,14 @@
-import { rightNavbar, expandRightNavbar, shrinkRightNavbar } from "./ui/navbar.js";
+import {
+  rightNavbar,
+  expandRightNavbar,
+  shrinkRightNavbar,
+} from "./ui/navbar.js";
 
 const fileTabsContainer = document.getElementById("file-tabs-container");
 const fileIcon = document.getElementById("file-icon");
+const plusImagePath = "../file-icons/plus.svg";
+const plusImageColor = "#FFFFFF";
+let currentFileCount = 0;
 
 let iconsJson = null;
 let tabs;
@@ -18,10 +25,25 @@ async function createFile(fileName, id) {
   editor.value = await getFileContent(id);
   tab.appendChild(tabTitle);
   fileTabsContainer.appendChild(tab);
+  currentFileCount++;
+}
+
+async function createNewTabButton() {
+  const icon = await loadSVG(plusImagePath, plusImageColor);
+  icon.onclick = async () => {
+    await createFile("new.txt", currentFileCount);
+    adjustNewTabButton(icon);
+  };
+  fileTabsContainer.appendChild(icon);
+}
+
+function adjustNewTabButton(self) {
+  fileTabsContainer.appendChild(self);
 }
 
 async function getFileContent(fileId) {
-  if (!fileId) return "File Not Found";
+  if (fileId == undefined) 
+    return "File not found for file: " + fileId;
 
   const response = await fetch("/api/getFileContent", {
     method: "POST",
@@ -34,8 +56,8 @@ async function getFileContent(fileId) {
   });
   const json = await response.json();
   const content = json.content;
-
-  return content;
+  
+  return content ?? "";
 }
 
 function getFileType(fileName) {
@@ -59,11 +81,18 @@ async function getFileIconsData() {
 async function addFileIcon(fileType, tab) {
   if (!iconsJson) {
     await getFileIconsData();
-    return undefined;
+    if (!iconsJson) return undefined;
   }
 
-  console.log(fileType);
-  const res = iconsJson.find((type) => type.fileType === fileType);
+  let res = iconsJson.find((icon) => icon.fileTypes.includes("default"));
+  for (const icon of iconsJson) {
+    for (const fileTypee of icon.fileTypes)
+      if (fileTypee == fileType) {
+        res = icon;
+        break;
+      }
+  }
+
   const icon = await loadSVG(res.iconPath, res.color);
   icon.classList.add("file-icon");
 
@@ -95,12 +124,11 @@ function createTab() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   await getFileIconsData();
-  await createFile("index.html", 1);
+  await createFile("index.html", currentFileCount);
+  await createNewTabButton();
 });
 
 fileIcon.addEventListener("click", () => {
-    if (rightNavbar.style.width === "50px")
-      expandRightNavbar();
-    else
-      shrinkRightNavbar();
+  if (rightNavbar.style.width === "50px") expandRightNavbar();
+  else shrinkRightNavbar();
 });

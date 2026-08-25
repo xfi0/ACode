@@ -1,6 +1,6 @@
-const { Server } = require("socket.io");
-const { applyDelta, shouldWriteKey } = require("./edits");
-const path = require("path");
+import { Server } from "socket.io";
+import { applyDelta, shouldWriteKey } from "./edits.js";
+import path from "path";
 
 function setupCollab(server) {
   const io = new Server(server, {
@@ -27,4 +27,4 @@ function setupCollab(server) {
   });
 }
 
-module.exports = setupCollab;
+export default setupCollab;

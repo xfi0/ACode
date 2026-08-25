@@ -1,7 +1,7 @@
 const express = require("express");
 const http = require("http");
 const app = express();
-const createCollabServer = require("./collab/collabServer");
+const createCollabServer = require("./collab/collabServer").default;
 const path = require("path");
 const { error } = require("console");
 const { readFile } = require("./collab/files");
@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.static(publicPath));
 
 app.post("/api/getFileContent", async (req, res) => {
-  if (!req.body.fileId)
+  if (!req.body.fileId == undefined)
     return res.status(400).json({ error: "fileId is required" });
 
   try {

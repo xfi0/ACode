@@ -1,6 +1,14 @@
-[{
-    "fileType": "html",
+[
+  {
+    "fileTypes": ["txt", "default"],
+    "iconName": "txt",
+    "iconPath": "./file-icons/file.svg",
+    "color": "#FFFFFF"
+  },
+  {
+    "fileTypes": ["html", "htm"],
     "iconName": "html",
     "iconPath": "./file-icons/html.svg",
     "color": "#ffa500"
-}]
+  }
+]
