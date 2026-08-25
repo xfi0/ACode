@@ -4,8 +4,7 @@ const path = require("path");
 const dirPath = path.join(__dirname, "files");
 
 async function writeToFile(fileName, content) {
-  if (!fileName) 
-    return;
+  if (!fileName) return;
 
   const filePath = path.join(dirPath, fileName);
 
@@ -24,7 +23,8 @@ async function readFile(fileName) {
   try {
     return await fs.readFile(filePath, "utf-8");
   } catch (err) {
-    console.error("Read failed:", err);
+    console.error("File does not exist: ", fileName);
+    return "";
   }
 }
 
