@@ -4,7 +4,8 @@
   "description": "Amethyst Code is a realtime, collaborative, text editor.",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
