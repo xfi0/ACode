@@ -1,9 +1,9 @@
-export const rightNavbar = document.getElementById("right-nav-container");
+export const leftNavbar = document.getElementById("left-nav-container");
 
-export function expandRightNavbar() {
-  rightNavbar.style.width = "100px";
+export function expandLeftNavbar() {
+  leftNavbar.style.width = "100px";
 }
 
-export function shrinkRightNavbar() {
-  rightNavbar.style.width = "50px";
+export function shrinkLeftNavbar() {
+  leftNavbar.style.width = "50px";
 }

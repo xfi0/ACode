@@ -23,7 +23,7 @@ html {
   height: 100%;
   background-color: var(--background-primary);
 }
-#right-nav-container {
+#left-nav-container {
   width: 50px;
   height: 100%;
   border: 1px solid var(--border-color);
@@ -32,16 +32,16 @@ html {
   display: flex;
   flex-direction: column;
 }
-#right-nav-container svg {
+#left-nav-container svg {
   margin-top: 10px;
   margin-left: 10px;
   color: var(--svg-color);
   gap: 10px;
 }
-#right-nav-container svg:enabled {
+#left-nav-container svg:enabled {
   color: var(--svg-color-selected);
 }
-#right-nav-container svg:hover {
+#left-nav-container svg:hover {
   color: var(--svg-color-hover);
 }
 #file-tabs-container {
