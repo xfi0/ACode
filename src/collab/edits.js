@@ -3,6 +3,12 @@ const { writeToFile } = require("./files.js");
 const docs = new Map();
 const writeTimers = new Map();
 
+async function resetDocs() {
+  docs.clear();
+  writeTimers.forEach((t) => clearTimeout(t));
+  writeTimers.clear();
+}
+
 async function applyDelta(fileName, delta) {
   let content = docs.get(fileName) || "";
   content = applyChange(content, delta);
@@ -43,4 +49,4 @@ function shouldWriteKey(key) {
   return !(key == "Ctrl" || key == "Shift" || key == "Alt");
 }
 
-module.exports = { applyDelta, shouldWriteKey, applyChange };
+module.exports = { applyDelta, shouldWriteKey, applyChange, resetDocs };

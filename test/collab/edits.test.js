@@ -2,6 +2,7 @@ const {
   applyDelta,
   shouldWriteKey,
   applyChange,
+  resetDocs,
 } = require("../../src/collab/edits");
 
 describe("applyChange", () => {
@@ -13,17 +14,60 @@ describe("applyChange", () => {
 });
 
 describe("applyDelta", () => {
+  beforeEach(() => resetDocs());
   test("Applies deltas to nonexisting file", async () => {
-    expect(await applyDelta("test", { type: "insert", index: 1, text: "test" })).toBe("test");
+    expect(
+      await applyDelta("test.txt", {
+        type: "insert",
+        index: 1,
+        length: 4,
+        text: "test",
+      }),
+    ).toBe("test");
   });
+  
   test("Inserts test", async () => {
-    expect(await applyDelta("test.txt", { type: "insert", index: 1, text: "test" })).toBe("test");
+    expect(
+      await applyDelta("test.txt", {
+        type: "insert",
+        index: 1,
+        length: 4,
+        text: "test",
+      }),
+    ).toBe("test");
   });
+
   test("Deletes test", async () => {
-    expect(await applyDelta("test.txt", { type: "delete", index: 0, length: 4, text: "test" })).toBe("");
+    expect(
+      await applyDelta("test.txt", {
+        type: "delete",
+        index: 0,
+        length: 4,
+        text: "test",
+      }),
+    ).toBe("");
   });
+
   test("Replaces test with 'cooler test'", async () => {
-    expect(await applyDelta("test.txt", { type: "replace", index: 0, length: 5, text: "cooler test" })).toBe("cooler test");
+    expect(
+      await applyDelta("test.txt", {
+        type: "replace",
+        index: 0,
+        length: 10,
+        text: "cooler test",
+      }),
+    ).toBe("cooler test");
+  });
+
+  test("Applies an invalid delta type", async () => {
+    expect(
+      await applyDelta("test.txt", {
+        type: "invalid",
+        index: 0,
+        length: 0,
+        text: "test",
+      }),
+    ).toBe("");
   });
 });
 
