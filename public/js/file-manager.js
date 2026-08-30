@@ -1,8 +1,5 @@
-import {
-  rightNavbar,
-  expandRightNavbar,
-  shrinkRightNavbar,
-} from "./ui/navbar.js";
+import { expandLeftNavbar, shrinkLeftNavbar, leftNavbar } from "./ui/navbar.js";
+import { loadSVG } from "./utils/svg.js";
 
 const fileTabsContainer = document.getElementById("file-tabs-container");
 const fileIcon = document.getElementById("file-icon");
@@ -42,8 +39,7 @@ function adjustNewTabButton(self) {
 }
 
 async function getFileContent(fileId) {
-  if (fileId == undefined) 
-    return "File not found for file: " + fileId;
+  if (fileId == undefined) return "File not found for file: " + fileId;
 
   const response = await fetch("/api/getFileContent", {
     method: "POST",
@@ -56,7 +52,7 @@ async function getFileContent(fileId) {
   });
   const json = await response.json();
   const content = json.content;
-  
+
   return content ?? "";
 }
 
@@ -99,22 +95,6 @@ async function addFileIcon(fileType, tab) {
   tab.prepend(icon);
 }
 
-async function loadSVG(path, color) {
-  if (!path) return;
-
-  const response = await fetch(path);
-  const text = await response.text();
-
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(text, "image/svg+xml");
-  const svg = doc.querySelector("svg");
-  svg.style.color = color;
-
-  if (!svg) return;
-
-  return svg;
-}
-
 function createTab() {
   const tab = document.createElement("div");
   tab.classList.add("tab");
@@ -122,13 +102,19 @@ function createTab() {
   return tab;
 }
 
+document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey && e.key === "s") {
+    e.preventDefault();
+    save();
+  }
+});
+
+function save() {
+  console.log("Saving...");
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   await getFileIconsData();
   await createFile("index.html", currentFileCount);
   await createNewTabButton();
-});
-
-fileIcon.addEventListener("click", () => {
-  if (rightNavbar.style.width === "50px") expandRightNavbar();
-  else shrinkRightNavbar();
 });

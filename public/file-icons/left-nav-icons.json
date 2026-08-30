@@ -1,0 +1,12 @@
+[
+  {
+    "iconName": "file",
+    "iconPath": "./file-icons/file.svg",
+    "color": "#FFFFFF"
+  },
+  {
+    "iconName": "globe",
+    "iconPath": "./file-icons/globe.svg",
+    "color": "#FFFFFF"
+  }
+]

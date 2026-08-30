@@ -24,26 +24,26 @@ html {
   background-color: var(--background-primary);
 }
 #left-nav-container {
+  padding-top: 10px;
   width: 50px;
   height: 100%;
   border: 1px solid var(--border-color);
   align-items: center;
-  /* justify-content: center; */
   display: flex;
   flex-direction: column;
-}
-#left-nav-container svg {
-  margin-top: 10px;
-  margin-left: 10px;
-  color: var(--svg-color);
   gap: 10px;
 }
-#left-nav-container svg:enabled {
+#left-nav-container svg {
+  color: var(--svg-color);
+}
+#left-nav-container svg.active {
   color: var(--svg-color-selected);
 }
+
 #left-nav-container svg:hover {
   color: var(--svg-color-hover);
 }
+
 #file-tabs-container {
   display: flex;
   flex-direction: row;
@@ -90,7 +90,13 @@ html {
   border: 1px solid var(--border-color);
   margin: 0;
   color: white;
+  outline: 0;
 }
+
+.text-editor:hover{
+  outline: 0;
+}
+
 .line-container{
   display: flex;
   height: 10px;
