@@ -2,7 +2,8 @@
 
 ## Dependencies
 1. [Express](https://www.npmjs.com/package/express)
-1. [Socket.io](https://www.npmjs.com/package/socket.io)
+2. [Socket.io](https://www.npmjs.com/package/socket.io)
+3. [Jest](https://www.npmjs.com/package/jest)
 
 ## Feedback
 There is one way in which you can recieve feedback:
