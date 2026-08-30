@@ -4,7 +4,7 @@
   --border-color: rgb(85, 82, 82);
   --svg-color: rgb(80, 80, 80);
   --svg-color-selected: rgb(209, 209, 209);
-  --svg-color-hover: rgb(207, 205, 205);
+  --svg-color-hover: rgb(185, 185, 185);
 }
 * {
   box-sizing: border-box;
