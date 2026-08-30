@@ -3,7 +3,6 @@ const http = require("http");
 const app = express();
 const createCollabServer = require("./collab/collabServer").default;
 const path = require("path");
-const { error } = require("console");
 const { readFile } = require("./collab/files");
 const publicPath = path.join(__dirname, "../public");
 const server = http.createServer(app);

@@ -43,4 +43,4 @@ function shouldWriteKey(key) {
   return !(key == "Ctrl" || key == "Shift" || key == "Alt");
 }
 
-module.exports = { applyDelta, shouldWriteKey };
+module.exports = { applyDelta, shouldWriteKey, applyChange };

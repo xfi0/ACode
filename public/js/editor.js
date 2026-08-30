@@ -29,10 +29,11 @@ editor.addEventListener("input", (e) => {
   const newValue = editor.value;
   const diff = computeDelta(lastValue, newValue, lastSelection);
 
-  if (diff) {
+  if (state.connectedToRemote && diff) {
     socket.emit("edit", { fileId: state.currentFileId, delta: diff });
   }
 
+  
   lastValue = newValue;
 });
 

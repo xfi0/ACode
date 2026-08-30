@@ -4,12 +4,12 @@
   "description": "Amethyst Code is a realtime, collaborative, text editor.",
   "main": "server.js",
   "scripts": {
-    "test": "test",
+    "test": "jest",
     "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "Amethyst-Code"
+    "url": "ACode"
   },
   "keywords": [
     "text-editor",
@@ -21,5 +21,8 @@
   "dependencies": {
     "express": "^5.2.1",
     "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "jest": "^30.5.0"
   }
 }

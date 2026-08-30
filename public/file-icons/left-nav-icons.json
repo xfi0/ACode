@@ -2,11 +2,13 @@
   {
     "iconName": "file",
     "iconPath": "./file-icons/file.svg",
+    "modal-file": "../modals/tabs/file-tab.js",
     "color": "#FFFFFF"
   },
   {
     "iconName": "globe",
     "iconPath": "./file-icons/globe.svg",
+    "modal-file": "../modals/tabs/network-tab.js",
     "color": "#FFFFFF"
   }
 ]

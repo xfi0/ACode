@@ -1,6 +1,7 @@
 let state = {
-    currentFileId: localStorage.getItem("currentFileId") ?? 0,
-    currentTabId: localStorage.getItem("currentTabId") ?? 0
+  currentFileId: Number(localStorage.getItem("currentFileId") ?? "0") ?? 0,
+  currentTabId: Number(localStorage.getItem("currentTabId") ?? "0") ?? 0,
+  connectedToRemote: false
 };
 
-export {state};
+export { state };

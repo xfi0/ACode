@@ -51,10 +51,10 @@ html {
   height: 35px;
   width: 100%;
 }
-#editor-area {
+#tab-area {
   flex: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 .tab {
   margin: 0;
@@ -81,7 +81,7 @@ html {
   display: flex;
 }
 
-.text-editor{
+.text-editor {
   flex: 1;
   width: 100%;
   height: 100%;
@@ -93,18 +93,18 @@ html {
   outline: 0;
 }
 
-.text-editor:hover{
+.text-editor:hover {
   outline: 0;
 }
 
-.line-container{
+.line-container {
   display: flex;
   height: 10px;
   width: 100%;
   gap: 10px;
   margin-top: 0px;
 }
-.line-number{
+.line-number {
   padding: 0;
   margin: 0;
   width: 10px;
@@ -112,9 +112,23 @@ html {
   left: 10px;
   position: relative;
 }
-.line-input{
-  flex: 1;  
+.line-input {
+  flex: 1;
   width: 100%;
   background: none;
   border: 1px solid var(--border-color);
+}
+
+#right-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#tab-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
