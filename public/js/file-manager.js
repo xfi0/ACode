@@ -31,6 +31,7 @@ async function createNewTabButton() {
     await createFile("new.txt", currentFileCount);
     adjustNewTabButton(icon);
   };
+  
   fileTabsContainer.appendChild(icon);
 }
 

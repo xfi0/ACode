@@ -33,7 +33,9 @@ async function setupLeftNavbar(lastSelected) {
     const icon = leftIconsJson[i];
     const svg = await loadSVG(icon.iconPath);
     if (svg) {
-      if (lastSelected && lastSelected === icon) svg.classList.add("active");
+      if (lastSelected && lastSelected === icon) {
+        await iconClickHandler(svg, icon);
+      }
 
       svg.onclick = async () => await iconClickHandler(svg, icon);
       svg.id = i.toString();

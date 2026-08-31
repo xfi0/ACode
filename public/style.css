@@ -163,7 +163,7 @@ html {
   align-items: center;
 }
 
-.top-tab-container p{
+.top-tab-container p {
   color: white;
   margin: 0;
   padding: 0;
@@ -172,4 +172,16 @@ html {
 
 .top-tab-container:hover {
   filter: brightness(1.15);
+}
+
+#left-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#right-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
