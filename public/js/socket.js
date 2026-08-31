@@ -1,5 +1,6 @@
 import { editor } from "./editor.js";
 import { applyChange, deltas } from "./delta.js";
+import { state } from "./state.js";
 const socket = io();
 
 export function joinRoom(roomId) {

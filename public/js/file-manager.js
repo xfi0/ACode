@@ -1,4 +1,4 @@
-import { expandLeftNavbar, shrinkLeftNavbar, leftNavbar } from "./ui/navbar.js";
+import { expandLeftNavbar, shrinkLeftNavbar, leftNavbar } from "./ui/left-navbar.js";
 import { loadSVG } from "./utils/svg.js";
 
 const fileTabsContainer = document.getElementById("file-tabs-container");

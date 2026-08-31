@@ -5,6 +5,8 @@ const modal = () => {
 
     const tabArea = document.createElement("div");
     tabArea.id = "tab-area";
+
+    tabContent.appendChild(tabArea);
 };
 
 export default modal;
